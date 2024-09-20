@@ -4,6 +4,7 @@ using MagicVilla_villaAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicVilla_villaAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240920102529_AddVillaNumberToDb")]
+    partial class AddVillaNumberToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,7 +73,7 @@ namespace MagicVilla_villaAPI.Migrations
                         {
                             Id = 1,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 9, 20, 15, 37, 17, 475, DateTimeKind.Local).AddTicks(103),
+                            CreatedDate = new DateTime(2024, 9, 20, 13, 25, 29, 295, DateTimeKind.Local).AddTicks(516),
                             Details = "Royal Villa provides beachfront accommodations in Trabzon. This villa offers free private parking and a shared kitchen.",
                             ImageUrl = "https://limestays.com/wp-content/uploads/2023/01/34-926x618.jpg",
                             Name = "Royal Villa",
@@ -83,7 +86,7 @@ namespace MagicVilla_villaAPI.Migrations
                         {
                             Id = 2,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 9, 20, 15, 37, 17, 475, DateTimeKind.Local).AddTicks(164),
+                            CreatedDate = new DateTime(2024, 9, 20, 13, 25, 29, 295, DateTimeKind.Local).AddTicks(582),
                             Details = "Explore your family getaway with our premium pool villa, featuring a spacious room with two king-sized beds and a private pool right in your room.",
                             ImageUrl = "https://image-tc.galaxy.tf/wijpeg-vh7o2qzd9xv299ah5v1vav87/grand-lexis-port-dickson-premium-pool-villa-3-thumbnail-w4896_wide.jpg?crop=0%2C105%2C2000%2C1125&width=1140",
                             Name = "Premium Pool Villa",
@@ -96,7 +99,7 @@ namespace MagicVilla_villaAPI.Migrations
                         {
                             Id = 3,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 9, 20, 15, 37, 17, 475, DateTimeKind.Local).AddTicks(167),
+                            CreatedDate = new DateTime(2024, 9, 20, 13, 25, 29, 295, DateTimeKind.Local).AddTicks(585),
                             Details = "Featuring a garden, Highend Private Pool Villa features accommodations in Amphoe Koh Samui. This beachfront property offers access to a balcony.",
                             ImageUrl = "https://www.luva-villas.com/img/news_11_crop_0_1671810979.webp",
                             Name = "Luxury Pool Villa",
@@ -109,7 +112,7 @@ namespace MagicVilla_villaAPI.Migrations
                         {
                             Id = 4,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 9, 20, 15, 37, 17, 475, DateTimeKind.Local).AddTicks(170),
+                            CreatedDate = new DateTime(2024, 9, 20, 13, 25, 29, 295, DateTimeKind.Local).AddTicks(587),
                             Details = "Diamond Villa has view of islands and the Aegean Sea, with private pool. The villa offers accommodation with butler service, maximized luxury and advantages.",
                             ImageUrl = "https://static.wixstatic.com/media/b32baf_ff2d9aeb3aff4cb99694364312052495~mv2.jpg/v1/fill/w_640,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/b32baf_ff2d9aeb3aff4cb99694364312052495~mv2.jpg",
                             Name = "Diamond Villa",
@@ -122,7 +125,7 @@ namespace MagicVilla_villaAPI.Migrations
                         {
                             Id = 5,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 9, 20, 15, 37, 17, 475, DateTimeKind.Local).AddTicks(174),
+                            CreatedDate = new DateTime(2024, 9, 20, 13, 25, 29, 295, DateTimeKind.Local).AddTicks(590),
                             Details = "Providing an outdoor swimming pool, Diamond Pool Villa@Samui provides accommodations in Koh Samui. This chalet features free private parking, free shuttle.",
                             ImageUrl = "https://cdn-5d68e683f911c80950255463.closte.com/wp-content/uploads/2019/05/Edit_Overview_Villa-2.jpg",
                             Name = "Diamond Pool Villa",
@@ -148,25 +151,9 @@ namespace MagicVilla_villaAPI.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("VillaId")
-                        .HasColumnType("int");
-
                     b.HasKey("VillaNo");
 
-                    b.HasIndex("VillaId");
-
                     b.ToTable("VillaNumbers");
-                });
-
-            modelBuilder.Entity("MagicVilla_villaAPI.Models.VillaNumber", b =>
-                {
-                    b.HasOne("MagicVilla_villaAPI.Models.Villa", "Villa")
-                        .WithMany()
-                        .HasForeignKey("VillaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Villa");
                 });
 #pragma warning restore 612, 618
         }
