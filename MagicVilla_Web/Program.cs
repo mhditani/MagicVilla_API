@@ -19,6 +19,8 @@ builder.Services.AddSingleton(mapper);
 builder.Services.AddHttpClient<IVillaService, VillaService>();
 builder.Services.AddScoped<IVillaService, VillaService>();
 
+builder.Services.AddHttpClient<IVillaNumberService, VillaNumberService>();
+builder.Services.AddScoped<IVillaNumberService, VillaNumberService>();
 
 var app = builder.Build();
 
